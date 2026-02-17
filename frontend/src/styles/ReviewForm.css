@@ -1,0 +1,358 @@
+/* Review Form Component */
+.review-form {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.review-form h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* Star Rating */
+.rating-input {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 5px;
+}
+
+.star {
+    font-size: 32px;
+    cursor: pointer;
+    opacity: 0.2;
+    transition: all 0.2s ease;
+    transform: scale(1);
+}
+
+.star:hover,
+.star.active {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+.rating-label {
+    font-size: 13px;
+    color: #999;
+    margin-top: 5px;
+}
+
+/* Input and Textarea */
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Character Count */
+.char-count {
+    display: block;
+    font-size: 12px;
+    color: #999;
+    text-align: right;
+    margin-top: 5px;
+    transition: color 0.3s ease;
+}
+
+.form-group:has(.form-input:focus) .char-count,
+.form-group:has(.form-textarea:focus) .char-count {
+    color: #667eea;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    justify-content: flex-end;
+}
+
+.form-button {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    min-width: 140px;
+}
+
+.submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.cancel-btn {
+    background: white;
+    color: #666;
+    border: 1px solid #ddd;
+}
+
+.cancel-btn:hover {
+    background: #f8f9fa;
+    border-color: #999;
+}
+
+/* Error and Success Messages */
+.form-error,
+.form-success {
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 15px;
+    animation: slideDown 0.3s ease;
+}
+
+.form-error {
+    background: #fee;
+    color: #c33;
+    border: 1px solid #fcc;
+}
+
+.form-success {
+    background: #efe;
+    color: #3c3;
+    border: 1px solid #cfc;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading State */
+.form-button:disabled {
+    opacity: 0.6;
+}
+
+.form-button.loading {
+    pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .review-form {
+        padding: 20px;
+    }
+
+    .form-actions {
+        flex-wrap: wrap;
+    }
+
+    .form-button {
+        flex: 1;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .review-form {
+        padding: 15px;
+    }
+
+    .review-form h3 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .rating-input {
+        gap: 10px;
+    }
+
+    .star {
+        font-size: 28px;
+    }
+
+    .form-input,
+    .form-textarea {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .form-textarea {
+        min-height: 90px;
+    }
+
+    .form-actions {
+        gap: 10px;
+        justify-content: stretch;
+    }
+
+    .form-button {
+        flex: 1;
+        min-width: auto;
+    }
+
+    .form-error,
+    .form-success {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .review-form {
+        padding: 12px 10px;
+    }
+
+    .review-form h3 {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .rating-input {
+        gap: 8px;
+    }
+
+    .star {
+        font-size: 24px;
+    }
+
+    .form-input,
+    .form-textarea {
+        padding: 10px;
+        font-size: 12px;
+        border-radius: 4px;
+    }
+
+    .form-textarea {
+        min-height: 80px;
+    }
+
+    .char-count {
+        font-size: 11px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 15px;
+    }
+
+    .form-button {
+        padding: 9px 16px;
+        font-size: 13px;
+    }
+
+    .rating-label {
+        font-size: 12px;
+    }
+}
+
+/* Accessibility */
+.form-input:focus-visible,
+.form-textarea:focus-visible {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+.star:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+    border-radius: 50%;
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+    .review-form {
+        background: #2a2a3e;
+        color: #e0e0e0;
+    }
+
+    .form-group label {
+        color: #e0e0e0;
+    }
+
+    .form-input,
+    .form-textarea {
+        background: #3a3a4e;
+        border-color: #444;
+        color: #e0e0e0;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    }
+
+    .cancel-btn {
+        background: #3a3a4e;
+        color: #aaa;
+        border-color: #555;
+    }
+
+    .cancel-btn:hover {
+        background: #444;
+    }
+}
