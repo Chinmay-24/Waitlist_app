@@ -204,6 +204,37 @@ The application includes error handling for:
 - Validation errors
 - Server errors
 
+## 🔒 Security Features
+
+This application implements comprehensive security measures to protect user data and prevent unauthorized access:
+
+### Backend Security
+- **Helmet.js** - Sets 15+ security headers
+- **Rate Limiting** - 100 req/15min (general), 5 req/15min (auth)
+- **JWT Authentication** - 7-day token expiry
+- **Password Hashing** - bcryptjs with 10 rounds
+- **Input Validation** - Email format, password strength (8+ chars, 1 uppercase, 1 number)
+- **CORS Protection** - Whitelist-based (localhost:3000 only)
+- **NoSQL Injection Prevention** - Input sanitization
+- **CSRF Protection** - X-Requested-With headers
+- **Role-Based Access Control** - user/owner/admin roles
+
+### Frontend Security
+- **SessionStorage** - Secure token storage (cleared on browser close)
+- **XSS Prevention** - React auto-escaping + CSP headers
+- **Auto-Logout** - 1 hour session timeout
+- **Secure API Calls** - Interceptors with error handling
+- **Token Expiry Validation** - Automatic token refresh
+
+### User Privacy & Waiting List Protection
+- **Waiting List** - Hidden from public, admin-only access
+- **User Data** - Private to authenticated users only
+- **No Email Enumeration** - Same error for invalid credentials
+- **Sensitive Data** - Never exposed in API responses
+
+### For More Details
+See [SECURITY.md](./SECURITY.md) and [SECURITY_SUMMARY.md](./SECURITY_SUMMARY.md) for comprehensive security documentation.
+
 ## Future Enhancements
 
 - [ ] Payment integration
